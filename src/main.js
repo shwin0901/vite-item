@@ -8,6 +8,15 @@ const router = createRouter({
   history: createWebHashHistory(),
   routes
 })
+
+router.beforeEach(async (to, from, next) => {
+  if (!localStorage.getItem('login') && to.path !== '/login') {
+    next({path: '/login'})
+  } else {
+    next()
+  }
+})
+
 createApp(App)
   .use(router)
   .mount('#app')

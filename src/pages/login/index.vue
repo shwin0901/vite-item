@@ -51,6 +51,7 @@ const handleSubmit = async (formRef) => {
         message: `账号：${ruleForm.account}, 密码：${ruleForm.password}`,
         type: "success",
       });
+      localStorage.setItem('login', ruleForm.account)
       route.push("/");
     }
   });
